@@ -1,35 +1,35 @@
-import { Link } from "react-router-dom";
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Nav from 'react-bootstrap/Nav';
 
 const Header = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div className="container">
-                <Link className="navbar-brand" to="/">Mein Monteurzimmer</Link>
+       <Navbar bg="light" expand="lg">
+            <Container>
+                <Navbar.Brand href="#">Meine App</Navbar.Brand>
 
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#mainNav"
-                    >
-                        <span className="navbar-toggler-icon"></span>
-                </button>
-                
-                <div className="collapse navbar-collapse" id="mainNav">
-                    <ul className="navbar-nav ms-auto">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/">Startseite</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-Link" to="/dashboard">Dashboard</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+
+                    <Nav className="me-auto">
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#about">About</Nav.Link>
+                    </Nav>
+
+                    <Form className="d-flex">
+                        <Form.Control
+                            type="search"
+                            placehplder="Suche.."
+                            className="me-2"
+                        />
+                        <Button variant="outline-primary">Suche</Button>
+                    </Form>
+                    
+                </Navbar.Collapse>
+            </Container>
+       </Navbar>
     );
 };
 
