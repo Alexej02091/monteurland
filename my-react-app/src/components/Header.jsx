@@ -1,35 +1,50 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
+import Image from "react-bootstrap/Image";
+import SearchBar from "./SearchBar";
+
 
 const Header = () => {
     return (
-       <Navbar bg="light" expand="lg">
-            <Container>
-                <Navbar.Brand href="#">Meine App</Navbar.Brand>
+        <header style={{ borderBottom: "1px solid #eee"}}>
+            <Navbar bg="white" expand="lg" className="py-3">
+                <Container>
 
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#about">About</Nav.Link>
-                    </Nav>
-
-                    <Form className="d-flex">
-                        <Form.Control
-                            type="search"
-                            placehplder="Suche.."
-                            className="me-2"
+                    {/* Logo */}
+                    <Navbar.Brand href="/">
+                        <Image
+                            src="/Logo.png"
+                            alt="Logo"
+                            height={40}
                         />
-                        <Button variant="outline-primary">Suche</Button>
-                    </Form>
-                    
-                </Navbar.Collapse>
-            </Container>
-       </Navbar>
+                    </Navbar.Brand>
+
+                    <Navbar.Toggle aria-controls="main-nav" />
+                    <Navbar.Collapse id="main-nav">
+
+                        {/* Navigation */}
+                        <Nav className="me-auto">
+                            <Nav.Link href="#zimmer">Monterzimmer</Nav.Link>
+                            <Nav.Link href="#vermieter">Für Vermieter</Nav.Link>
+                            <Nav.Link href="magazin">Magatin</Nav.Link>
+                        </Nav>
+
+                        {/* Login */}
+                        <Button variant="outline-primary">Login</Button>
+
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+
+            {/* Suchfeld unter dem Header */}
+            <div style={{ background: "#f8f9a", padding: "20px 0"}}>
+                <Container>
+                    <SearchBar />
+                </Container>
+            </div>
+        </header>
     );
 };
 
