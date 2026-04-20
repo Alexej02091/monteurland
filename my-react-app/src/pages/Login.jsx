@@ -1,23 +1,14 @@
-import { useNavigate } from "react-router-dom";
+export default function Login() {
+  return (
+    <div className="login-page">
+      <h1>Login</h1>
 
-const Login = () => {
-    const navigate = useNavigate();
+      <input type="text" placeholder="E-Mail" />
+      <input type="password" placeholder="Passwort" />
 
-    const handleLogin = () => {
-        localStorage.setItem("auth", "true");
-        navigate("/dashboard");
-    };
+      <button>Einloggen</button>
 
-    return (
-        <div className="container py-5" style={{ maxWidth: "500px "}}>
-            <h1 className="mb-4">Login</h1>
-            <div className="card p-4 chadow-sm">
-                <button className="btn btn-primary w-100" onClick={handleLogin}>
-                    Einloggen
-                </button>
-            </div>
-        </div>
-    );
-};
-
-export default Login;
+      <p>Noch kein Konto? <a href="/register">Registrieren</a></p>
+    </div>
+  );
+}
