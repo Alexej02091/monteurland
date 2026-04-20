@@ -1,0 +1,96 @@
+/* HEADER WRAPPER */
+.mmz-header {
+  width: 100%;
+  background: #fff;
+  font-family: system-ui, sans-serif;
+}
+
+/* --------------------------------------------- */
+/* TOP BAR */
+/* --------------------------------------------- */
+
+.mmz-topbar {
+  padding: 6px 0;
+  border-bottom: none; /* WICHTIG: damit Switch und Navbar zusammenkleben */
+}
+
+/* SWITCH BOX (Suchender / Vermieter) */
+.mmz-switch {
+  display: flex;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-right: 16px;
+}
+
+/* Einzelner Tab */
+.mmz-switch-item {
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  background: #fff;
+  color: #333;
+  transition: 0.2s;
+}
+
+/* Aktiver Tab = GELB */
+.mmz-switch-item.active {
+  background: #ffd200; /* Original Gelb */
+  font-weight: 600;
+  color: #000;
+}
+
+/* Flagge */
+.flag-de {
+  width: 22px;
+  height: 16px;
+  background-image: url("/flag-de.png");
+  background-size: cover;
+}
+
+/* --------------------------------------------- */
+/* NAVBAR */
+/* --------------------------------------------- */
+
+.mmz-navbar {
+  padding: 14px 0;
+  transition: background 0.2s;
+}
+
+/* Wenn "Suchender" aktiv */
+.mmz-navbar-customer {
+  background: #ffd200; /* GELB */
+}
+
+/* Wenn "Vermieter" aktiv */
+.mmz-navbar-landlord {
+  background: #ffffff; /* WEISS */
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* NAV ITEMS */
+.mmz-item {
+  font-size: 15px;
+  color: #333 !important;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.mmz-item:hover {
+  background: #f2f2f2;
+}
+
+/* BURGER ICON */
+.mmz-burger {
+  cursor: pointer;
+}
+
+/* --------------------------------------------- */
+/* MOBILE MENU */
+/* --------------------------------------------- */
+
+.mmz-mobile {
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
+  padding: 20px 0;
+}
