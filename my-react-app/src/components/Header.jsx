@@ -17,7 +17,8 @@ const Header = () => {
                         <Image
                             src="/Logo.png"
                             alt="Logo"
-                            height={40}
+                            height={42}
+                            style={{ objectFit: "contain" }}
                         />
                     </Navbar.Brand>
 
@@ -29,17 +30,26 @@ const Header = () => {
                             <Nav.Link href="#zimmer">Monterzimmer</Nav.Link>
                             <Nav.Link href="#vermieter">Für Vermieter</Nav.Link>
                             <Nav.Link href="magazin">Magatin</Nav.Link>
+                        
+                            {/* Login */}
+                            <Button 
+                                variant="outline-primary"
+                                style={{
+                                    borderRadius: "6px",
+                                    padding: "6px 16px",
+                                    fontWeight: 500
+                                }}
+                                >
+                                Login
+                            </Button>
                         </Nav>
-
-                        {/* Login */}
-                        <Button variant="outline-primary">Login</Button>
 
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
 
             {/* Suchfeld unter dem Header */}
-            <div style={{ background: "#f8f9a", padding: "20px 0"}}>
+            <div style={{ background: "#f8f9a", padding: "25px 0"}}>
                 <Container>
                     <SearchBar />
                 </Container>
