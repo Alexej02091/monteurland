@@ -1,9 +1,11 @@
 export default function Search() {
-    return (
-        <div className="search-page">
-            <h1>Unterkünfte suchen</h1>
-            <input type="text" placeholder="Ort oder PLZ eingeben.." />
-            <button>Suchen</button>
-        </div>
-    );
+  return (
+    <div>
+      <h1 className="mb-3">Suche</h1>
+      <p>
+        Hier kommt später die Suchfunktion hin. 
+        Du kannst Filter, Kartenansicht oder Listenansicht integrieren.
+      </p>
+    </div>
+  );
 }

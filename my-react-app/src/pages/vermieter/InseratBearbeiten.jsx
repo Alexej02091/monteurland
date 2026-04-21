@@ -1,26 +1,44 @@
-// src/pages/vermieter/InseratErstellen.jsx
-import { useState } from "react";
+// src/pages/vermieter/InseratBearbeiten.jsx
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-export default function InseratErstellen() {
+export default function InseratBearbeiten() {
+  const { id } = useParams();
+
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
 
+  useEffect(() => {
+    // Fake-Daten (später API)
+    const fakeData = {
+      title: "Beispiel-Inserat",
+      price: 1200,
+      description: "Schöne Wohnung im Zentrum."
+    };
+
+    setTitle(fakeData.title);
+    setPrice(fakeData.price);
+    setDescription(fakeData.description);
+  }, [id]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Neues Inserat:", {
+    console.log("Bearbeitetes Inserat:", {
+      id,
       title,
       price,
       description
     });
 
-    alert("Inserat wurde erstellt (Demo)");
+    alert("Inserat wurde gespeichert (Demo)");
   };
 
   return (
     <div className="col-md-8 mx-auto">
-      <h1 className="mb-4">Neues Inserat erstellen</h1>
+      <h1 className="mb-4">Inserat bearbeiten</h1>
+      <p className="text-muted">Inserat-ID: {id}</p>
 
       <form onSubmit={handleSubmit}>
 
@@ -31,7 +49,6 @@ export default function InseratErstellen() {
             className="form-control"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="z.B. Moderne Wohnung im Zentrum"
           />
         </div>
 
@@ -42,7 +59,6 @@ export default function InseratErstellen() {
             className="form-control"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            placeholder="1200"
           />
         </div>
 
@@ -53,12 +69,11 @@ export default function InseratErstellen() {
             rows="5"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Beschreibe die Wohnung..."
           ></textarea>
         </div>
 
-        <button type="submit" className="btn btn-success w-100">
-          Inserat erstellen
+        <button type="submit" className="btn btn-primary w-100">
+          Änderungen speichern
         </button>
       </form>
     </div>
