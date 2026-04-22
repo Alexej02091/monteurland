@@ -1,10 +1,17 @@
 // src/router/AppRouter.jsx
 import { Routes, Route } from "react-router-dom";
 
+// Öffentliche Routen (Gast)
 import Home from "../pages/Home";
 import Search from "../pages/Search";
 import Login from "../pages/Login";
+import Unauthorized from "../pages/Unauthorized";
+import InseratDetail from "../pages/InseratDetail";
 
+import NotFound from "../pages/NotFound";
+import ServerError from "../pages/ServerError";
+
+// Geschützte Bereiche
 import ProtectedRoute from "./ProtectedRoute";
 
 // Gesuchter
@@ -24,10 +31,6 @@ import UserManagement from "../pages/admin/UserManagement";
 import SystemLogs from "../pages/admin/SystemLogs";
 import Einstellungen from "../pages/admin/Einstellungen";
 
-import Unauthorized from "../pages/Unauthorized";
-import NotFound from "../pages/NotFound";
-import ServerError from "../pages/ServerError";
-
 export default function AppRouter() {
   return (
     <Routes>
@@ -36,12 +39,10 @@ export default function AppRouter() {
       <Route path="/" element={<Home />} />
       <Route path="/search" element={<Search />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/inserat/:id" element={<InseratDetail />} />
 
-      {/* Unauthorized(403) */}
+      {/* Fehlerseiten */}
       <Route path="/unauthorized" element={<Unauthorized />} />
-      {/* NotFound(404) */}
-      <Route path="*" element={<NotFound />} />
-        {/* ServerError */}
       <Route path="/error" element={<ServerError />} />
 
       {/* Gesuchter-Bereich */}
@@ -145,6 +146,9 @@ export default function AppRouter() {
           </ProtectedRoute>
         }
       />
+
+      {/* 404 ganz am Ende */}
+      <Route path="*" element={<NotFound />} />
 
     </Routes>
   );
