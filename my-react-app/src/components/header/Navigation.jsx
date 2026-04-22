@@ -7,6 +7,7 @@ export default function Navigation({ mobile = false }) {
     <nav>
       <a href="/" className={linkClass}>Home</a>
       <a href="/search" className={linkClass}>Suche</a>
+      <a href="/favoriten" className={linkClass}>Favoriten</a>
     </nav>
   );
 }

@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { FavoritesContext } from "../context/FavoritesContext";
 import { useState } from "react";
 import inserate from "../data/inserate";
 import { Link } from "react-router-dom";
@@ -7,6 +9,8 @@ export default function Search() {
   const [location, setLocation] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [rooms, setRooms] = useState("");
+
+  const { toggleFavorite, isFavorite } = useContext(FavoritesContext);
 
   const filtered = inserate.filter((item) => {
     return (
@@ -93,6 +97,13 @@ export default function Search() {
                   {item.location} – {item.rooms} Zimmer
                 </p>
 
+                <buuton
+                  className="btn btn-outline-danger w-100 mb-2"
+                  onClick={() => toggleFavorite(item.id)}
+                  >
+                    {isFavorite(item.id) ? "❤️ Entfernen" : "🤍 Favorit"}
+                  </buuton>
+                  
                 <Link
                   to={`/inserat/${item.id}`}
                   className="btn btn-primary w-100"

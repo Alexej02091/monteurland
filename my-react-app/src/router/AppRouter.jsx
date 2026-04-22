@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Unauthorized from "../pages/Unauthorized";
 import InseratDetail from "../pages/InseratDetail";
+import Favorites from "../pages/Favorites";
 
 import NotFound from "../pages/NotFound";
 import ServerError from "../pages/ServerError";
@@ -42,6 +43,7 @@ export default function AppRouter() {
       <Route path="/login" element={<Login />} />
       <Route path="/inserat/:id" element={<InseratDetail />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/favoriten" element={<Favorites/>} />
 
       {/* Fehlerseiten */}
       <Route path="/unauthorized" element={<Unauthorized />} />
