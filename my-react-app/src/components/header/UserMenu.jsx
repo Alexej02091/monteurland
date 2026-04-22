@@ -1,4 +1,18 @@
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import Dropdown from "react-bootstrap/Dropdown";
+
 export default function UserMenu({ user, mobile = false }) {
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
+  // Wenn kein User eingeloggt ist → Login anzeigen
   if (!user) {
     return (
       <a
@@ -10,26 +24,31 @@ export default function UserMenu({ user, mobile = false }) {
     );
   }
 
+  // Mobile Version (kein Dropdown)
   if (mobile) {
     return (
       <div>
         <p className="fw-bold mb-2">{user.email}</p>
         <a href="/profile" className="d-block mb-3">Profil</a>
-        <a href="/logout" className="btn btn-danger w-100">Logout</a>
+
+        <button onClick={handleLogout} className="btn btn-danger w-100">
+          Logout
+        </button>
       </div>
     );
   }
 
+  // Desktop Version (Dropdown)
   return (
-    <div className="dropdown">
-      <button className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+    <Dropdown>
+      <Dropdown.Toggle variant="secondary">
         {user.email}
-      </button>
+      </Dropdown.Toggle>
 
-      <ul className="dropdown-menu">
-        <li><a className="dropdown-item" href="/profile">Profil</a></li>
-        <li><a className="dropdown-item" href="/logout">Logout</a></li>
-      </ul>
-    </div>
+      <Dropdown.Menu>
+        <Dropdown.Item href="/profile">Profil</Dropdown.Item>
+        <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 }
