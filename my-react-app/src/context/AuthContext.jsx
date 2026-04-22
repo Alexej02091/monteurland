@@ -2,51 +2,62 @@ import { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
 
-export default function AuthProvider({ children }) {
+export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [role, setRole] = useState("guest");
 
-  // Beim Laden: Daten aus localStorage holen
+  // User aus localStorage laden
   useEffect(() => {
-    const savedUser = localStorage.getItem("user");
-    const savedRole = localStorage.getItem("role");
-
-    if (savedUser) setUser(JSON.parse(savedUser));
-    if (savedRole) setRole(savedRole);
+    const savedUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (savedUser) setUser(savedUser);
   }, []);
 
-  // Login-Funktion
+  // Fake Login
   const login = (email, password) => {
-    // Beispiel: Fake-Login
-    // Später ersetzt du das durch API-Call
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Beispiel: Rolle anhand der E-Mail bestimmen
-    let detectedRole = "gesuchter";
+    const found = users.find(
+      (u) => u.email === email && u.password === password
+    );
 
-    if (email === "vermieter@test.de") detectedRole = "vermieter";
-    if (email === "admin@test.de") detectedRole = "admin";
+    if (!found) {
+      alert("Falsche Login-Daten!");
+      return false;
+    }
 
-    const loggedUser = { email };
-
-    setUser(loggedUser);
-    setRole(detectedRole);
-
-    localStorage.setItem("user", JSON.stringify(loggedUser));
-    localStorage.setItem("role", detectedRole);
-
+    localStorage.setItem("currentUser", JSON.stringify(found));
+    setUser(found);
     return true;
   };
 
-  // Logout-Funktion
+  // Fake Registrierung
+  const register = (email, password) => {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (users.find((u) => u.email === email)) {
+      alert("Benutzer existiert bereits!");
+      return false;
+    }
+
+    const newUser = {
+      email,
+      password,
+      role: "gesuchter" // Standardrolle
+    };
+
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Registrierung erfolgreich!");
+    return true;
+  };
+
   const logout = () => {
+    localStorage.removeItem("currentUser");
     setUser(null);
-    setRole("guest");
-    localStorage.removeItem("user");
-    localStorage.removeItem("role");
   };
 
   return (
-    <AuthContext.Provider value={{ user, role, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, register }}>
       {children}
     </AuthContext.Provider>
   );

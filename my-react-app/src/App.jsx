@@ -1,7 +1,6 @@
+import { AuthProvider } from "./context/AuthContext";
 import MainLayout from "./layouts/MainLayout";
 import AppRouter from "./router/AppRouter";
-
-import AuthProvider from "./context/AuthContext";
 
 export default function App() {
   return (

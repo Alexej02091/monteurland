@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Search from "../pages/Search";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 import Unauthorized from "../pages/Unauthorized";
 import InseratDetail from "../pages/InseratDetail";
 
@@ -40,6 +41,7 @@ export default function AppRouter() {
       <Route path="/search" element={<Search />} />
       <Route path="/login" element={<Login />} />
       <Route path="/inserat/:id" element={<InseratDetail />} />
+      <Route path="/register" element={<Register />} />
 
       {/* Fehlerseiten */}
       <Route path="/unauthorized" element={<Unauthorized />} />

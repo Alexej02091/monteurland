@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
-  const { login } = useAuth();
+export default function Register() {
+  const { register } = useAuth();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -12,16 +12,16 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const success = login(email, password);
+    const success = register(email, password);
 
     if (success) {
-      navigate("/");
+      navigate("/login");
     }
   };
 
   return (
     <div className="col-md-6 mx-auto">
-      <h1 className="mb-4">Login</h1>
+      <h1 className="mb-4">Registrieren</h1>
 
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -49,7 +49,7 @@ export default function Login() {
         </div>
 
         <button type="submit" className="btn btn-primary w-100">
-          Einloggen
+          Registrieren
         </button>
       </form>
     </div>
