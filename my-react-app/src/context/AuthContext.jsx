@@ -1,17 +1,22 @@
+// src/context/AuthContext.jsx
 import { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true); // NEU
 
   // User aus localStorage laden
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem("currentUser"));
-    if (savedUser) setUser(savedUser);
+    if (savedUser) {
+      setUser(savedUser);
+    }
+    setLoading(false); // NEU
   }, []);
 
-  // Fake Login
+  // Login
   const login = (email, password) => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -26,10 +31,11 @@ export function AuthProvider({ children }) {
 
     localStorage.setItem("currentUser", JSON.stringify(found));
     setUser(found);
+
     return true;
   };
 
-  // Fake Registrierung
+  // Registrierung
   const register = (email, password) => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -51,13 +57,14 @@ export function AuthProvider({ children }) {
     return true;
   };
 
+  // Logout
   const logout = () => {
     localStorage.removeItem("currentUser");
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, register }}>
+    <AuthContext.Provider value={{ user, loading, login, logout, register }}>
       {children}
     </AuthContext.Provider>
   );

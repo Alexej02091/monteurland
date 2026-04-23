@@ -1,7 +1,7 @@
 // src/router/AppRouter.jsx
 import { Routes, Route } from "react-router-dom";
 
-// Öffentliche Routen (Gast)
+// Öffentliche Routen
 import Home from "../pages/Home";
 import Search from "../pages/Search";
 import Login from "../pages/Login";
@@ -17,9 +17,9 @@ import ServerError from "../pages/ServerError";
 import ProtectedRoute from "./ProtectedRoute";
 
 // Gesuchter
-import Profile from "../pages/gesuchter/GesuchterProfil";
-import Favoriten from "../pages/gesuchter/Favoriten";
-import Anfragen from "../pages/gesuchter/Anfragen";
+import GesuchterProfile from "../pages/gesuchter/GesuchterProfil";
+import GesuchterFavoriten from "../pages/gesuchter/Favoriten";
+import GesuchterAnfragen from "../pages/gesuchter/Anfragen";
 
 // Vermieter
 import Dashboard from "../pages/vermieter/Dashboard";
@@ -41,20 +41,20 @@ export default function AppRouter() {
       <Route path="/" element={<Home />} />
       <Route path="/search" element={<Search />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/inserat/:id" element={<InseratDetail />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/favoriten" element={<Favorites/>} />
+      <Route path="/inserat/:id" element={<InseratDetail />} />
+      <Route path="/favoriten" element={<Favorites />} />
 
       {/* Fehlerseiten */}
       <Route path="/unauthorized" element={<Unauthorized />} />
       <Route path="/error" element={<ServerError />} />
 
-      {/* Gesuchter-Bereich */}
+      {/* Gesuchter */}
       <Route
         path="/gesuchter/profile"
         element={
           <ProtectedRoute role="gesuchter">
-            <Profile />
+            <GesuchterProfile />
           </ProtectedRoute>
         }
       />
@@ -63,7 +63,7 @@ export default function AppRouter() {
         path="/gesuchter/favoriten"
         element={
           <ProtectedRoute role="gesuchter">
-            <Favoriten />
+            <GesuchterFavoriten />
           </ProtectedRoute>
         }
       />
@@ -72,12 +72,12 @@ export default function AppRouter() {
         path="/gesuchter/anfragen"
         element={
           <ProtectedRoute role="gesuchter">
-            <Anfragen />
+            <GesuchterAnfragen />
           </ProtectedRoute>
         }
       />
 
-      {/* Vermieter-Bereich */}
+      {/* Vermieter */}
       <Route
         path="/vermieter/dashboard"
         element={
@@ -114,7 +114,7 @@ export default function AppRouter() {
         }
       />
 
-      {/* Admin-Bereich */}
+      {/* Admin */}
       <Route
         path="/admin"
         element={
@@ -151,7 +151,7 @@ export default function AppRouter() {
         }
       />
 
-      {/* 404 ganz am Ende */}
+      {/* 404 */}
       <Route path="*" element={<NotFound />} />
 
     </Routes>

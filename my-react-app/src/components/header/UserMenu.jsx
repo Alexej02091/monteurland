@@ -12,7 +12,7 @@ export default function UserMenu({ user, mobile = false }) {
     navigate("/login");
   };
 
-  // Wenn kein User eingeloggt ist → Login anzeigen
+  // WICHTIG: Erst prüfen, ob user existiert!
   if (!user) {
     return (
       <a
@@ -24,12 +24,22 @@ export default function UserMenu({ user, mobile = false }) {
     );
   }
 
-  // Mobile Version (kein Dropdown)
+  // Jetzt ist user garantiert NICHT null → jetzt dürfen wir user.role lesen
+  const profileLink =
+    user.role === "gesuchter"
+      ? "/gesuchter/profile"
+      : user.role === "vermieter"
+      ? "/vermieter/dashboard"
+      : user.role === "admin"
+      ? "/admin"
+      : "/";
+
+  // Mobile Version
   if (mobile) {
     return (
       <div>
         <p className="fw-bold mb-2">{user.email}</p>
-        <a href="/profile" className="d-block mb-3">Profil</a>
+        <a href={profileLink} className="d-block mb-3">Profil</a>
 
         <button onClick={handleLogout} className="btn btn-danger w-100">
           Logout
@@ -38,7 +48,7 @@ export default function UserMenu({ user, mobile = false }) {
     );
   }
 
-  // Desktop Version (Dropdown)
+  // Desktop Version
   return (
     <Dropdown>
       <Dropdown.Toggle variant="secondary">
@@ -46,7 +56,7 @@ export default function UserMenu({ user, mobile = false }) {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="/profile">Profil</Dropdown.Item>
+        <Dropdown.Item href={profileLink}>Profil</Dropdown.Item>
         <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

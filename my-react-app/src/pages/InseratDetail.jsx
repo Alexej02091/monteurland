@@ -18,9 +18,9 @@ export default function InseratDetail() {
       description:
         "Helle, moderne Wohnung im Herzen der Stadt. Perfekt für Singles oder Paare.",
       images: [
-        "https://via.placeholder.com/800x400?text=Wohnung+Bild+1",
-        "https://via.placeholder.com/800x400?text=Wohnung+Bild+2",
-        "https://via.placeholder.com/800x400?text=Wohnung+Bild+3"
+        <img src="" />,
+        <img src="" />,
+        <img src="" />
       ],
       location: "Hamburg, Innenstadt",
       size: 65,
