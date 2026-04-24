@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import users from "../data/users";
 
 export const AuthContext = createContext();
 
@@ -27,16 +28,15 @@ export function AuthProvider({ children }) {
   // ---------------------------------------------------------
   // 2. LOGIN
   // ---------------------------------------------------------
-  const login = (email, password) => {
+  const login = (name, password) => {
     console.log("Login-Versuch gestartet...");
-    console.log("E-Mail: ", email);
+    console.log("E-Mail: ", name);
     console.log("Passwort: ", password);
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    console.log("Users aus localStorage geladen: ", users);
+    console.log("Prüfe statische User aus users.js", users);
 
-    const found = users.find(
-      (u) => u.email === email && u.password === password
+    let found = users.find(
+      (u) => u.name === name && u.password === password
     );
 
     if (!found) {
@@ -49,7 +49,7 @@ export function AuthProvider({ children }) {
 
     // User in sessionStorage speichern
     const sessionUser = {
-      email: found.email,
+      name: found.name,
       role: found.role,
     };
 
@@ -66,35 +66,41 @@ export function AuthProvider({ children }) {
   // ---------------------------------------------------------
   // 3. REGISTRIEREN
   // ---------------------------------------------------------
-  const register = (email, password) => {
-    console.log("Registrierungsversuch gestartet...");
-    console.log("E-Mail: ", email);
-    console.log("Passwort: ", password);
-
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    console.log("Users aus localStorage geladen: ", users);
-
-    if (users.find((u) => u.email === email)) {
-      console.log("Registrierung fehlgeschlagen: Benutzer existiert bereits");
-      alert("Benutzer existiert bereits!");
-      return false;
-    }
-
-    const newUser = {
-      email,
-      password,
-      role: "gesuchter",
-    };
-
-    users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
-
-    console.log("Neuer Benutzer registriert: ", newUser);
-    console.log("Users in localStorage gespeichert: ", users);
-
-    alert("Registrierung erfolgreich!");
-    return true;
+  const register = () => {
+    alert("Registrierung ist deaktiviert — users.js ist statisch.");
+    console.log("Registrierung nicht möglich (users.js ist statisch)");
+    return false;
   };
+
+  // const register = (name, password) => {
+  //   console.log("Registrierungsversuch gestartet...");
+  //   console.log("E-Mail: ", name);
+  //   console.log("Passwort: ", password);
+
+  //   const users = JSON.parse(localStorage.getItem("users")) || [];
+  //   console.log("Users aus localStorage geladen: ", users);
+
+  //   if (users.find((u) => u.name === name)) {
+  //     console.log("Registrierung fehlgeschlagen: Benutzer existiert bereits");
+  //     alert("Benutzer existiert bereits!");
+  //     return false;
+  //   }
+
+  //   const newUser = {
+  //     name,
+  //     password,
+  //     role: "gesuchter",
+  //   };
+
+  //   users.push(newUser);
+  //   localStorage.setItem("users", JSON.stringify(users));
+
+  //   console.log("Neuer Benutzer registriert: ", newUser);
+  //   console.log("Users in localStorage gespeichert: ", users);
+
+  //   alert("Registrierung erfolgreich!");
+  //   return true;
+  // };
 
   // ---------------------------------------------------------
   // 4. LOGOUT
