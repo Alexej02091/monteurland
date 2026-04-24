@@ -1,12 +1,14 @@
-import inserate from "../data/inserate";
-import { Link } from "react-router-dom";
+// import inserate from "../data/inserate";
+// import { Link } from "react-router-dom";
+import Card from "../components/common/Card";
 
 export default function Home() {
   return (
     <div>
       <h1 className="mb-4">Aktuelle Inserate</h1>
 
-      <div className="row g-4">
+    <Card />
+      {/* <div className="row g-4">
         {inserate.map((item) => (
           <div key={item.id} className="col-md-4">
             <div className="card h-100">
@@ -35,7 +37,7 @@ export default function Home() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
