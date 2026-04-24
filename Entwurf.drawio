@@ -5015,11 +5015,53 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="JaZ7VzOmHnYj5KN-_z8m" name="Seite-8">
-    <mxGraphModel dx="786" dy="793" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <diagram id="JaZ7VzOmHnYj5KN-_z8m" name="SeitenAnsicht">
+    <mxGraphModel dx="2593" dy="2698" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=5;" value="Gast" vertex="1">
+          <mxGeometry height="1150" width="830" x="10" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;align=left;verticalAlign=top;" value="Header" vertex="1">
+          <mxGeometry height="100" width="830" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="Footer" vertex="1">
+          <mxGeometry height="110" width="830" x="10" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="40" width="170" x="610" y="-220" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=5;" value="Gesuchter" vertex="1">
+          <mxGeometry height="1150" width="830" x="870" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=5;" value="Vermieter" vertex="1">
+          <mxGeometry height="1150" width="830" x="1730" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=5;" value="Admin" vertex="1">
+          <mxGeometry height="1150" width="830" x="2590" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="40" width="170" x="810" y="-220" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;align=left;verticalAlign=top;" value="Header" vertex="1">
+          <mxGeometry height="100" width="830" x="870" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;align=left;verticalAlign=top;" value="Header" vertex="1">
+          <mxGeometry height="100" width="830" x="1730" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;align=left;verticalAlign=top;" value="Header" vertex="1">
+          <mxGeometry height="100" width="830" x="2590" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="Footer" vertex="1">
+          <mxGeometry height="110" width="830" x="870" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="Footer" vertex="1">
+          <mxGeometry height="110" width="830" x="1730" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="VDIFM2KCIcBHRjvhrf_k-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="Footer" vertex="1">
+          <mxGeometry height="110" width="830" x="2590" y="1050" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
