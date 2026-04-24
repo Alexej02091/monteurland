@@ -14,7 +14,7 @@ export default function MainLayout({ children }) {
         {children}
       </main>
 
-      <Footer />   {/* ⬅️ HIER wird der Footer aufgerufen */}
+      <Footer />
 
     </div>
   );
